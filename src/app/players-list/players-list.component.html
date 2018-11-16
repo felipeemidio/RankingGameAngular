@@ -1,0 +1,59 @@
+<link rel="stylesheet" href="https://fonts.googleapis.com/icon?family=Material+Icons">
+<link rel="stylesheet" href="https://code.getmdl.io/1.3.0/material.light_blue-blue.min.css" />
+<script defer src="https://code.getmdl.io/1.3.0/material.min.js"></script>
+
+<div class="container">
+  <h2>Lista De Jogadores</h2>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8" >
+    
+    
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Nome </th>
+      <td mat-cell *matCellDef="let p"> {{p.name}} </td>
+    </ng-container>
+    
+    <!-- Victories Column -->
+    <ng-container matColumnDef="victories">
+      <th mat-header-cell *matHeaderCellDef> Vitórias </th>
+      <td mat-cell *matCellDef="let p"> 
+        {{p.victories}}
+        <a href="/players">
+        <button mat-button [disabled]="p.victories>=p.numberOfGames" class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" (click)="AddVictory(p.cod)">
+          +
+        </button>
+        </a>  
+      </td>
+    </ng-container>
+
+    <!-- Nº of Games Column -->
+    <ng-container matColumnDef="numberOfGames">
+      <th mat-header-cell *matHeaderCellDef> Partidas </th>
+      <td mat-cell *matCellDef="let p"> 
+        {{p.numberOfGames}}
+        <a href="/players">
+          <button mat-button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" (click)="AddGame(p.cod)">
+            +
+          </button>
+          </a> 
+      </td>
+    </ng-container>
+
+    <!-- Delete Column -->
+    <ng-container matColumnDef="deletar">
+        <th mat-header-cell class="buttonCell" *matHeaderCellDef> Deletar </th>
+        <td mat-cell class="buttonCell" *matCellDef="let p"> 
+          <a href="/players">
+          <button mat-button class="mdl-button mdl-js-button mdl-js-ripple-effect mdl-button--accent" (click)="onClickMe(p.cod)">
+            <i class="material-icons">delete</i> 
+          </button>
+          </a>
+        </td>
+      </ng-container>
+
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+</div>
+
