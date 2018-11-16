@@ -1,6 +1,8 @@
 # RankingGame
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5.
+This project is the front-end of the [RankingGameSpring](https://github.com/felipeemidio/RankingGameSpring).
+
+This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 7.0.5. 
 
 ## Development server
 
